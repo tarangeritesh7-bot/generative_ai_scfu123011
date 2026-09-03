@@ -54,7 +54,7 @@ while True:
 transcript_text = "\n".join(lines)
 
 
-# STEP 1 - Discussion Summary
+
 
 step1_prompt = f"""
 Read the meeting transcript and summarize what was discussed.
@@ -71,8 +71,6 @@ Rules:
 
 discussion_summary = ask(step1_prompt)
 
-
-# STEP 2 - Action Items
 
 step2_prompt = f"""
 Identify action items from the discussion summary below.
@@ -118,7 +116,7 @@ except json.JSONDecodeError:
     raise SystemExit
 
 
-# STEP 3 - Structured Task Table
+
 
 step3_prompt = f"""
 Format the following action items as a Markdown task table.
@@ -140,7 +138,6 @@ Rules:
 task_table = ask(step3_prompt, temperature=0)
 
 
-# OUTPUT
 
 print("\n========== STEP 1: DISCUSSION SUMMARY ==========\n")
 print(discussion_summary.strip())
